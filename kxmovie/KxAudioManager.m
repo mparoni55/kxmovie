@@ -149,7 +149,8 @@ static OSStatus renderCallback (void *inRefCon, AudioUnitRenderActionFlags	*ioAc
 - (BOOL) setupAudio
 {
     // --- Audio Session Setup ---
-        
+	
+	//UInt32 sessionCategory = kAudioSessionCategory_SoloAmbientSound;
     UInt32 sessionCategory = kAudioSessionCategory_MediaPlayback;
     //UInt32 sessionCategory = kAudioSessionCategory_PlayAndRecord;
     if (checkError(AudioSessionSetProperty(kAudioSessionProperty_AudioCategory,
@@ -188,6 +189,19 @@ static OSStatus renderCallback (void *inRefCon, AudioUnitRenderActionFlags	*ioAc
         // just warning
     }
 #endif
+	
+	
+	// set the allow mixing property to play over other exiciting player wihtout canceling them
+	UInt32 allowMixing = true;
+	if (checkError(AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryMixWithOthers,
+										   sizeof(allowMixing),
+										   &allowMixing),
+				   "Couldn't enable Audio Mixing")){
+		
+		 // just warning
+	}
+	
+	
         
     if (checkError(AudioSessionSetActive(YES),
                    "Couldn't activate the audio session"))

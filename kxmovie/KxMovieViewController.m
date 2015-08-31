@@ -306,12 +306,12 @@ _messageLabel.hidden = YES;
     _infoButton.showsTouchWhenHighlighted = YES;
     _infoButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [_infoButton addTarget:self action:@selector(infoDidTouch:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_topHUD addSubview:_doneButton];
+	
+	if(!self.isDoneButtonHidden) [_topHUD addSubview:_doneButton];
     [_topHUD addSubview:_progressLabel];
     [_topHUD addSubview:_progressSlider];
     [_topHUD addSubview:_leftLabel];
-    [_topHUD addSubview:_infoButton];
+    if(!self.isDoneButtonHidden) [_topHUD addSubview:_infoButton];
 
     // bottom hud
 
@@ -1339,7 +1339,8 @@ _messageLabel.hidden = YES;
 - (void) showHUD: (BOOL) show
 {
     _hiddenHUD = !show;    
-    _panGestureRecognizer.enabled = _hiddenHUD;
+	_hiddenHUD = (self.isHUDHidden ? YES : !show);
+	_panGestureRecognizer.enabled = _hiddenHUD;
         
     [[UIApplication sharedApplication] setIdleTimerDisabled:_hiddenHUD];
     

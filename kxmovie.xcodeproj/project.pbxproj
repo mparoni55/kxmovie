@@ -46,6 +46,11 @@
 		87FD6191163A75DC0090956E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E79437163910D0000A0848 /* QuartzCore.framework */; };
 		87FD6192163A75DF0090956E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E79439163910EA000A0848 /* Accelerate.framework */; };
 		87FD6193163A75E10090956E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E79435163910CA000A0848 /* OpenGLES.framework */; };
+		C3105EC11B6D751D006D7A55 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3105EBC1B6D751D006D7A55 /* libavcodec.a */; };
+		C3105EC21B6D751D006D7A55 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3105EBD1B6D751D006D7A55 /* libavformat.a */; };
+		C3105EC31B6D751D006D7A55 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3105EBE1B6D751D006D7A55 /* libavutil.a */; };
+		C3105EC41B6D751D006D7A55 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3105EBF1B6D751D006D7A55 /* libswresample.a */; };
+		C3105EC51B6D751D006D7A55 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3105EC01B6D751D006D7A55 /* libswscale.a */; };
 		FD20733F5D6A4546A9836E2D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D953B9D2DC48FBB580C6AC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +108,11 @@
 		87E7945216391BD2000A0848 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		87E7946116394577000A0848 /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
 		87FD6175163A75440090956E /* libkxmovie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libkxmovie.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3105EBC1B6D751D006D7A55 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = libs/FFmpeg/libavcodec.a; sourceTree = "<group>"; };
+		C3105EBD1B6D751D006D7A55 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = libs/FFmpeg/libavformat.a; sourceTree = "<group>"; };
+		C3105EBE1B6D751D006D7A55 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = libs/FFmpeg/libavutil.a; sourceTree = "<group>"; };
+		C3105EBF1B6D751D006D7A55 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = libs/FFmpeg/libswresample.a; sourceTree = "<group>"; };
+		C3105EC01B6D751D006D7A55 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = libs/FFmpeg/libswscale.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +144,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3105EC11B6D751D006D7A55 /* libavcodec.a in Frameworks */,
+				C3105EC21B6D751D006D7A55 /* libavformat.a in Frameworks */,
+				C3105EC31B6D751D006D7A55 /* libavutil.a in Frameworks */,
+				C3105EC41B6D751D006D7A55 /* libswresample.a in Frameworks */,
+				C3105EC51B6D751D006D7A55 /* libswscale.a in Frameworks */,
 				87FD6176163A75440090956E /* Foundation.framework in Frameworks */,
 				87FD618D163A75CF0090956E /* CoreGraphics.framework in Frameworks */,
 				87FD618E163A75D20090956E /* MediaPlayer.framework in Frameworks */,
@@ -171,6 +186,11 @@
 		87E793FB16390F6D000A0848 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3105EBC1B6D751D006D7A55 /* libavcodec.a */,
+				C3105EBD1B6D751D006D7A55 /* libavformat.a */,
+				C3105EBE1B6D751D006D7A55 /* libavutil.a */,
+				C3105EBF1B6D751D006D7A55 /* libswresample.a */,
+				C3105EC01B6D751D006D7A55 /* libswscale.a */,
 				8704657A16F6EC9100D4083E /* libiconv.dylib */,
 				87E7944416391B9E000A0848 /* libavcodec.a */,
 				87E7944616391B9E000A0848 /* libavformat.a */,
@@ -515,6 +535,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/libs/FFmpeg\"",
+					"$(PROJECT_DIR)/libs/FFmpeg",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -550,6 +571,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/libs/FFmpeg\"",
+					"$(PROJECT_DIR)/libs/FFmpeg",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

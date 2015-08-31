@@ -23,6 +23,9 @@ extern NSString * const KxMovieParameterDisableDeinterlacing;   // BOOL
                                parameters: (NSDictionary *) parameters;
 
 @property (readonly) BOOL playing;
+@property (nonatomic, assign) BOOL isHUDHidden;
+@property (nonatomic, assign) BOOL isDoneButtonHidden;
+@property (nonatomic, assign) BOOL isInfoButtonHidden;
 
 - (void) play;
 - (void) pause;
