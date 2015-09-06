@@ -225,8 +225,11 @@ static NSMutableDictionary * gHistory;
     _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhiteLarge];
     _activityIndicatorView.center = self.view.center;
     _activityIndicatorView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    
-    [self.view addSubview:_activityIndicatorView];
+	
+	if(!self.isSpinnerHidden) // added by mparoni
+		[self.view addSubview:_activityIndicatorView];
+	
+	
     
     CGFloat width = bounds.size.width;
     CGFloat height = bounds.size.height;
@@ -1743,6 +1746,17 @@ _messageLabel.hidden = YES;
             }
         }
     }
+}
+
+
+// added by mparoni
+-(void)setIsSpinnerHidden:(BOOL)isSpinnerHidden{
+	[_activityIndicatorView removeFromSuperview];
+	if(!isSpinnerHidden){
+		[self.view addSubview:_activityIndicatorView];
+	}
+	_isSpinnerHidden = isSpinnerHidden;
+	
 }
 
 @end
